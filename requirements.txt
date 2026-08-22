@@ -1,0 +1,12 @@
+Flask
+Flask-Cors
+requests
+Flask
+flask-cors
+requests
+numpy
+faiss-cpu
+hnswlib
+sentence-transformers
+RapidFuzz
+selenium
