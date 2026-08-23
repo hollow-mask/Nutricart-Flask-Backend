@@ -9,12 +9,15 @@ import hnswlib
 import numpy as np
 from rapidfuzz import fuzz
 import math
+import os
 from Productfilter import (
     IMPORTANT_TOKENS,
     INGREDIENT_CONVERSIONS_GRAMS,
     UNIFORM_INGREDIENT_CONVERSION_GRAMS,
 )
+from dotenv import load_dotenv
 
+load_dotenv(".env.local")
 # activate virtual eniorment: .\Scripts\Activate
 
 app = Flask(__name__)
@@ -23,7 +26,7 @@ CORS(app)
 # === Step 1: Authenticate and get access token ===
 # TODO find away to not hard code your API key dummy probaly willl need to be environment variable
 CLIENT_ID = "nutricartbudgetingapp-bbc89mg5"
-CLIENT_SECRET = "l0o4WZOnlyNjK05u4dKJNaCBFda1g5FH-hz66Dmd"  # re-type manually
+CLIENT_SECRET = os.environ.get("API_KEY")
 
 
 def get_access_token():
@@ -1379,5 +1382,5 @@ if __name__ == "__main__":
 
     print(f"\n💲 Product results for '{search_term}' near {zip_code}:\n")
     ingr = defaultdict(str)
-    list = search_product(token, location_id, search_term, ingr)
+    list = search_product(token, location_id, search_term)
     # print(f"{list}")
