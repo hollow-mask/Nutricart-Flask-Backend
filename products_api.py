@@ -21,6 +21,7 @@ app = Flask(__name__)
 CORS(app)
 
 # === Step 1: Authenticate and get access token ===
+# TODO find away to not hard code your API key dummy probaly willl need to be environment variable
 CLIENT_ID = "nutricartbudgetingapp-bbc89mg5"
 CLIENT_SECRET = "l0o4WZOnlyNjK05u4dKJNaCBFda1g5FH-hz66Dmd"  # re-type manually
 
